@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ * ---
+ * Hint: You can use the debug stream to print initialTX and initialTY, if Thor seems not follow your orders.
+ **/
+
+int main()
+{
+    int lightX; // the X position of the light of power
+    int lightY; // the Y position of the light of power
+    int initialTX; // Thor's starting X position
+    int initialTY; // Thor's starting Y position
+    cin >> lightX >> lightY >> initialTX >> initialTY; cin.ignore();
+    
+    int tX=initialTX;
+    int tY=initialTY;
+    string direction;
+    // game loop
+    while (1) {
+        int remainingTurns; // The remaining amount of turns Thor can move. Do not remove this line.
+        cin >> remainingTurns; cin.ignore();
+        if(tX>lightX&&tY>lightY){tX-=1; tY-=1; direction="NW";}
+        else if(tX<lightX&&tY<lightY){tX+=1; tY+=1; direction="SE";}
+        else if(tX<lightX&&tY>lightY){tX+=1; tY-=1; direction="NE";}
+        else if(tX>lightX&&tY<lightY){tX-=1; tY+=1; direction="SW";}
+        else if(tX>lightX){tX-=1; direction="W";}
+        else if(tX<lightX){tX+=1; direction="E";}
+        else if(tY>lightY){tY-=1; direction="N";}
+        else if(tY<lightY){tY+=1; direction="S";}
+
+        // Write an action using cout. DON'T FORGET THE "<< endl"
+        // To debug: cerr << "Debug messages..." << endl;
+
+
+        // A single line providing the move to be made: N NE E SE S SW W or NW
+        cout << direction << endl;
+    }
+}
